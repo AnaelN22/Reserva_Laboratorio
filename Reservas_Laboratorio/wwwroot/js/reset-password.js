@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    // Necesario para que las cookies HttpOnly (access_token / refresh_token) se envíen al backend.
+    axios.defaults.withCredentials = true;
+
     const validateResetForm = new JustValidate('#newPasswordForm');
 
     validateResetForm

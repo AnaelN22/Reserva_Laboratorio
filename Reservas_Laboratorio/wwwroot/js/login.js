@@ -1,5 +1,9 @@
 
 document.addEventListener("DOMContentLoaded", function () {
+
+    // Necesario para que las cookies HttpOnly se envíen al backend
+    axios.defaults.withCredentials = true;
+
     //Funcion para cambiar entre formularios
     function switchForm(formId) {
         //Ocultar todos los formularios
@@ -17,6 +21,8 @@ document.addEventListener("DOMContentLoaded", function () {
             switchForm(formId)
         });
     });
+
+    // ----- LOGIN -----
     //Validamos con JustValidate nuestro formulario
     const validate = new JustValidate('#signupForm');
 
@@ -72,6 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
             }
         });
+
     // ---------------- REGISTER FORM ----------------//
     const validateRegisterForm = new JustValidate('#registerFormElement');
     validateRegisterForm
@@ -136,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     Swal.fire({
                         icon: 'error',
                         title: 'Error',
-                        text: response.data.errorMessage || 'Credenciales inválidas.'
+                        text: response.data.errorMessage || 'Error al crear cuenta.'
                     });
                 }
             } catch (err) {
@@ -157,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function () {
         
         .addField('#resetEmail', [{
             rule: 'required',
-            errorMessage: 'La contraseña es requerida'
+            errorMessage: 'El correo es requerido'
         },
         {
             rule: 'email',
@@ -193,7 +200,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     Swal.fire({ 
                         icon: 'error',
                         title: 'Error',
-                        text: response.data.errorMessage || 'Credenciales inválidas.'
+                        text: response.data.errorMessage || 'Correo inválido.'
                     });
                 }
             } catch (err) {
