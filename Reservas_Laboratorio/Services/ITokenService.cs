@@ -1,4 +1,5 @@
-﻿using Reservas_Laboratorio.Models;
+﻿using Microsoft.IdentityModel.Tokens;
+using Reservas_Laboratorio.Models;
 
 namespace Reservas_Laboratorio.Services
 {
@@ -7,5 +8,6 @@ namespace Reservas_Laboratorio.Services
         string GenerateAccessToken(Usuario user);
         string GenerateRefreshToken();
         string GeneratePasswordResetToken();
+        public TokenValidationParameters GetValidationParameters();
     }
 }
