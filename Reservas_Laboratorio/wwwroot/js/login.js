@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     });
 
                     setTimeout(() => {
-                        window.location.href = '/Home/Index';
+                        window.location.href = '/Reserva/Reservas';
                     }, 2000);
                 } else {
                     Swal.fire({
@@ -111,9 +111,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 errorMessage: 'Las contraseñas no coinciden'
             }
         ])
-        //.addField('#UserRole', [
-        //    { rule: 'required', errorMessage: 'Seleccione un rol' }
-        //])
+        .addField('#UserRole', [
+            { rule: 'required', errorMessage: 'Seleccione un rol' }
+        ])
         .onSuccess(async (event) => {
             event.preventDefault();
 
