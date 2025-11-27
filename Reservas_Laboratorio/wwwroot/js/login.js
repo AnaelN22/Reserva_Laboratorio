@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     });
 
                     setTimeout(() => {
-                        window.location.href = '/Reserva/Reservas';
+                        window.location.href = '/Home/Index';
                     }, 2000);
                 } else {
                     Swal.fire({

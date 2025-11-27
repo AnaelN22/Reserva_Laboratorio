@@ -2,7 +2,64 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas de Laboratorio</title>
+    <link rel="stylesheet" href="/css/reservas.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Reservas de Laboratorio</h1>
+
+        <!-- Botón para nueva reserva -->
+        <button id="btnNuevaReserva" class="btn">Nueva Reserva</button>
+
+        <!-- Tabla de reservas -->
+        <table id="tablaReservas">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Laboratorio</th>
+                    <th>Usuario</th>
+                    <th>Fecha</th>
+                    <th>Hora Inicio</th>
+                    <th>Hora Fin</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Se llenará dinámicamente con JS -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal para crear/editar reserva -->
+    <div id="modalReserva" class="modal hidden">
+        <div class="modal-content">
+            <span id="cerrarModal" class="close">&times;</span>
+            <h2 id="modalTitulo">Nueva Reserva</h2>
+            <form id="formReserva">
+                <label for="labId">Laboratorio:</label>
+                <select id="labId" required></select>
+
+                <label for="fecha">Fecha:</label>
+                <input type="date" id="fecha" required>
+
+                <label for="horaInicio">Hora Inicio:</label>
+                <input type="time" id="horaInicio" required>
+
+                <label for="horaFin">Hora Fin:</label>
+                <input type="time" id="horaFin" required>
+
+                <button type="submit" class="btn">Guardar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/reservas.js"></script>
+</body>
+</html>
+
