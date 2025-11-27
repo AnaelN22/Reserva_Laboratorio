@@ -5,7 +5,7 @@
         public int Id { get; set; }
         public int LabId { get; set; }
         public DateTime Fecha { get; set; }
-        public TimeSpan HoraInicio { get; set; }
-        public TimeSpan HoraFin { get; set; }
+        public DateTime HoraInicio { get; set; }
+        public DateTime HoraFin { get; set; }
     }
 }

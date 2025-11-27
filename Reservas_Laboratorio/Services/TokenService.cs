@@ -46,21 +46,5 @@ namespace Reservas_Laboratorio.Services
             return Convert.ToBase64String(RandomNumberGenerator.GetBytes(64));
         }
 
-        public TokenValidationParameters GetValidationParameters()
-        {
-            return new TokenValidationParameters
-            {
-                ValidateIssuer = true,
-                ValidateAudience = true,
-                ValidateLifetime = true,
-                ValidateIssuerSigningKey = true,
-                ValidIssuer = _jwtSettings.Issuer,
-                ValidAudience = _jwtSettings.Audience,
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.Key)),
-
-                // Opcional: tolerancia de 1 minuto por si los relojes difieren
-                ClockSkew = TimeSpan.FromMinutes(1)
-            };
-        }
     }
 }

@@ -8,7 +8,7 @@
         public int UsuarioId { get; set; }
         public string UsuarioName { get; set; } = string.Empty;
         public DateTime Fecha { get; set; }
-        public TimeSpan HoraInicio { get; set; }
-        public TimeSpan HoraFin { get; set; }
+        public DateTime HoraInicio { get; set; }
+        public DateTime HoraFin { get; set; }
     }
 }

@@ -8,6 +8,5 @@ namespace Reservas_Laboratorio.Services
         string GenerateAccessToken(Usuario user);
         string GenerateRefreshToken();
         string GeneratePasswordResetToken();
-        public TokenValidationParameters GetValidationParameters();
     }
 }

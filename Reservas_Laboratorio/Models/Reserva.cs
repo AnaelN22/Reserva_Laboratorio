@@ -7,17 +7,18 @@ namespace Reservas_Laboratorio.Models
         public int Id { get; set; }
 
         public int UsuarioId { get; set; }
-        public virtual Usuario? Usuario { get; set; }
+        public virtual Usuario Usuario { get; set; }
 
         public int LabId { get; set; }
-        public virtual Laboratorio? Lab { get; set; }
+        public virtual Laboratorio Lab { get; set; }
 
         // SOLO FECHA (sin hora)
         public DateTime Fecha { get; set; }
 
         // HORAS
-        public TimeSpan HoraInicio { get; set; }
-        public TimeSpan HoraFin { get; set; }
+        public DateTime HoraInicio { get; set; }
+        public  DateTime HoraFin { get; set; }
+        
     }
 
 }

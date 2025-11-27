@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 
 namespace Reservas_Laboratorio.Services
 {
-    public class AuthService(IUserRepository userRepo, ITokenService tokenService, EmailService emailService, IMapper mapper) : IAuthService
+    public class AuthService(IUserRepository userRepo, ITokenService tokenService, IEmailService emailService, IMapper mapper) : IAuthService
     {
         private readonly IUserRepository _userRepo = userRepo;
         private readonly ITokenService _tokenService = tokenService;
@@ -91,12 +91,20 @@ namespace Reservas_Laboratorio.Services
             string confirmationLink = $"https://localhost:7255/Auth/ConfirmEmail?email={user.Email}&token={encodedToken}";
 
             string htmlBody = $"""
-                < !DOCTYPE html >
-                < html >< body >
-                < p > Hola,</ p >
-                < p > Haz clic en el siguiente botón para confirmar tu cuenta:</ p >
-                < p >< a href = "{confirmationLink}" style = 'background:#007BFF; color:white; padding:10px 20px;border-radius:5px;text-decoration:none;' > Confirmar cuenta </ a ></ p >
-                </ body ></ html >
+                  <!DOCTYPE html>
+                  <html>
+                  <body>
+                  <p>Hola,</p>
+                  <p>Haz clic en el siguiente botón para confirmar tu cuenta:</p>
+                  <p>
+                  <a href="{confirmationLink}"
+                  style="background:#007BFF;color:white;padding:10px 20px;
+                  border-radius:5px;text-decoration:none;">
+                  Confirmar cuenta
+                  </a>
+                 </p>
+                </body>
+                </html>
                 """;
 
             _emailService.SendPasswordResetEmail(user.Email, htmlBody);
@@ -119,12 +127,12 @@ namespace Reservas_Laboratorio.Services
             string confirmationLink = $"https://localhost:7255/Auth/ConfirmEmail?email={user.Email}&token={encodedToken}";
 
             string htmlBody = $"""
-                < !DOCTYPE html >
-                < html >< body >
-                < p > Hola,</ p >
-                < p > Haz clic en el siguiente botón para confirmar tu cuenta:</ p >
-                < p >< a href = "{confirmationLink}" style = 'background:#007BFF; color:white; padding:10px 20px;border-radius:5px;text-decoration:none;' > Confirmar cuenta </ a ></ p >
-                </ body ></ html >
+                <!DOCTYPE html>
+                <html><body>
+                <p> Hola,</ p>
+                <p> Haz clic en el siguiente botón para confirmar tu cuenta:</p>
+                <p>< a href = "{confirmationLink}" style = 'background:#007BFF; color:white; padding:10px 20px;border-radius:5px;text-decoration:none;'> Confirmar cuenta </a></p>
+                </body ></html>
                 """;
 
             _emailService.SendPasswordResetEmail(user.Email, htmlBody);

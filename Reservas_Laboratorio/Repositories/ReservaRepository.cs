@@ -51,7 +51,7 @@ namespace Reservas_Laboratorio.Repositories
         public async Task SaveAsync() => await _context.SaveChangesAsync();
 
         // Conflicto: chequear solapamiento (algoritmo de intervalos)
-        public async Task<bool> HasConflictAsync(int labId, DateTime fecha, TimeSpan hInicio, TimeSpan hFin, int? excludingReservaId = null)
+        public async Task<bool> HasConflictAsync(int labId, DateTime fecha, DateTime hInicio, DateTime hFin, int? excludingReservaId = null)
         {
             var dateOnly = fecha.Date;
             var q = _context.Reservas.Where(r => r.LabId == labId && r.Fecha == dateOnly);
@@ -65,5 +65,6 @@ namespace Reservas_Laboratorio.Repositories
             );
 
         }
+
     }
 }

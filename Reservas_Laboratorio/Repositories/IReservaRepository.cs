@@ -10,7 +10,7 @@ namespace Reservas_Laboratorio.Repositories
         Task<Reserva> AddAsync(Reserva reserva);
         Task UpdateAsync(Reserva reserva);
         Task DeleteAsync(Reserva reserva);
-        Task<bool> HasConflictAsync(int labId, DateTime fecha, TimeSpan hInicio, TimeSpan hFin, int? excludingReservaId = null);
+        Task<bool> HasConflictAsync(int labId, DateTime fecha, DateTime hInicio, DateTime hFin, int? excludingReservaId = null);
         Task SaveAsync();
     }
 }

@@ -1,9 +1,6 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    // Necesario para que las cookies HttpOnly se envíen al backend
-    axios.defaults.withCredentials = true;
-
     //Funcion para cambiar entre formularios
     function switchForm(formId) {
         //Ocultar todos los formularios
@@ -111,9 +108,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 errorMessage: 'Las contraseñas no coinciden'
             }
         ])
-        .addField('#UserRole', [
-            { rule: 'required', errorMessage: 'Seleccione un rol' }
-        ])
+        //.addField('#UserRole', [
+        //   { rule: 'required', errorMessage: 'Seleccione un rol' }
+        //])
         .onSuccess(async (event) => {
             event.preventDefault();
 
