@@ -88,7 +88,7 @@ namespace Reservas_Laboratorio.Services
 
             await _userRepo.AddAsync(user);
             await _userRepo.SaveAsync();
-            string confirmationLink = $"https://localhost:7255/Auth/ConfirmEmail?email={user.Email}&token={encodedToken}";
+            string confirmationLink = $"https://localhost:7217/Auth/ConfirmEmail?email={user.Email}&token={encodedToken}";
 
             string htmlBody = $"""
                   <!DOCTYPE html>
@@ -124,7 +124,7 @@ namespace Reservas_Laboratorio.Services
             user.EmailConfirmationToken = rawToken;
 
             await _userRepo.SaveAsync();
-            string confirmationLink = $"https://localhost:7255/Auth/ConfirmEmail?email={user.Email}&token={encodedToken}";
+            string confirmationLink = $"https://localhost:7217/Auth/ConfirmEmail?email={user.Email}&token={encodedToken}";
 
             string htmlBody = $"""
                 <!DOCTYPE html>
@@ -181,7 +181,7 @@ namespace Reservas_Laboratorio.Services
             user.PasswordResetToken = token;
             user.ResetTokenExpiryTime = DateTime.UtcNow.AddHours(1);
             await _userRepo.SaveAsync();
-            string confirmationLink = $"https://localhost:7255/Auth/ConfirmEmail?email={user.Email}&token={encodedToken}";
+            string confirmationLink = $"https://localhost:7217/Auth/ConfirmEmail?email={user.Email}&token={encodedToken}";
 
             string htmlBody = $"""
                 < !DOCTYPE html >
